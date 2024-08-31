@@ -22,4 +22,4 @@ The model architectures are visualized below:
 Finally, the general runtime for training 500 epochs are shown below:
 <img src="/asset/wall_clock_time.png" alt="alt text" width="400">
 
-More information can be found from the [write-up]().
+Derivations, statistical testing, and more information can be found from the [write-up](https://honglizhaobob.github.io/projects/lstm/).
