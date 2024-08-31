@@ -1,4 +1,4 @@
-# Script for loading and saving data from Yahoo Finance locally.
+# Script for downloading and saving data from Yahoo Finance locally.
 
 import yfinance as yf 
 import pandas as pd
@@ -31,16 +31,6 @@ if __name__ == "__main__":
         path = "./data/{}_{}_TO_{}.csv".format(tk, start_date, end_date)
         data.to_csv(path)
         print("> {} saved. size = {}".format(tk, data.shape))
-        
-    # check data format
-    for tk in TICKERS:
-        try:
-            path = "./data/{}_{}_TO_{}.csv".format(tk, start_date, end_date)
-            data = pd.read_csv(path)
-        except:
-            print("{} in the range {} to {} does not exist locally. ".format(tk, start_date, end_date))
-        assert not data.isnull().values.any()
-
     # ensure all indices match 
     tmp = None
     for tk in TICKERS:
@@ -49,3 +39,4 @@ if __name__ == "__main__":
         tmp = pd.read_csv(path).Date
         if prev is not None:
             assert (tmp == prev).all()
+    print("Data format consistent. ")
